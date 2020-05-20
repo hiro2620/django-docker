@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  nginx:
+      image: nginx:1.13
+      ports:
+        - "8010:8000"
+      volumes:
+        - ./nginx/conf:/etc/nginx/conf.d
+        - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
+        - ./static:/static
+      depends_on:
+        - python
+
+  db:
+      image: postgres:10-alpine
+      # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      ports:
+        - "5432:5432"
+      env_file: .env
+      volumes:
+        - ./pgsql:/var/lib/postgresql/data
+
+  python:
+      build: ./python
+      command: uwsgi --socket :8001 --module app.wsgi --py-autoreload 1 --logto /tmp/mylog.log
+      volumes:
+        - ./django-root:/code
+        - ./static:/static
+      expose:
+        - "8001"
+      depends_on:
+        - db
