@@ -7,6 +7,7 @@ docker-compose.yml and other files to launch develop environment for django with
 The instructions below are for Linux. If you're using a Mac or Windows, please read accordingly. 
 
 STEP 1
+
 Clone files. 
 ```bash
 $ cd dir-to-work
@@ -17,6 +18,7 @@ $ cd django-docker
 and never used while setting up environment.
 
 STEP 2
+
 Build Docker containers.
 It takes a few minuits, depending on yout internet speed. 
 ```bash
@@ -27,6 +29,7 @@ If you want to run it on the background, run
 $ docker-compose up -d
 ```
 instead.
+
 When you get messeages like this,
 ```
 db_1      | 2020-05-20 05:39:41.098 UTC [1] LOG:  database system is ready to accept connections
@@ -34,6 +37,7 @@ db_1      | 2020-05-20 05:39:41.098 UTC [1] LOG:  database system is ready to ac
 , press `Ctrl+C` to stop containers and go to the next step.
 
 STEP 3
+
 Start Django project.
 run
 ```bash
@@ -49,6 +53,7 @@ Then, access `http://localhost:8010` on browser to check if Django project works
 
 
 STEP 4
+
 Allow django to connect PostgreSQL.
 
 Generated files in `./django-root/` is unwritable, so run
@@ -134,4 +139,6 @@ How to stop containers started by `$ docker-compose up -d` ?
 
 [hiro2620](https://github.com/hiro2620)
 
+
+=====================================================
 That's all, thanks:)
