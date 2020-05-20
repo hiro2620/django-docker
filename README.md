@@ -110,7 +110,7 @@ docker-compose run --rm python python3 manage.py createsuperuser
 ## NOTE
 
 How to change port to access Django page?
-  - Edit line line 7 in `docker-compose.yml`
+  - Edit line 7 in `docker-compose.yml`
   ```
   ports:
   - "8010:8000"
