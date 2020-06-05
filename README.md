@@ -32,7 +32,7 @@ $ docker-compose down
 ```
 
 ### STEP 3 Start Django project.
-run
+Run
 ```bash
 $ docker-compose run --rm python django-admin startproject app .
 ```
@@ -131,5 +131,4 @@ How to stop containers started by `$ docker-compose up -d` ?
 [hiro2620](https://github.com/hiro2620)
 
 
-=====================================================
 Thank you.
